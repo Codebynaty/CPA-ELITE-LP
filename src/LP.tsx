@@ -486,7 +486,7 @@ const CPAElite = () => {
                <span className="text-[9px] text-red-400 font-bold tracking-widest">AO VIVO: {spotsLeft} VAGAS</span>
             </div>
 
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] border border-[#D4AF37]/30 px-5 py-2 rounded hover:bg-[#D4AF37] hover:text-[#02050A] transition-all">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] border border-[#D4AF37]/30 px-5 py-2 rounded hover:bg-[#D4AF37] hover:text-[#02050A] transition-all" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Contact'); }}>
               Acesso Liberado
             </a>
           </nav>
@@ -501,7 +501,7 @@ const CPAElite = () => {
           <div className="md:hidden bg-[#02050A] border-b border-white/10 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4">
             <a href="#metodo" className="text-white uppercase tracking-widest text-sm" onClick={() => setIsMenuOpen(false)}>Método</a>
             <a href="#recompensas" className="text-white uppercase tracking-widest text-sm" onClick={() => setIsMenuOpen(false)}>Ganhos</a>
-            <a href={WHATSAPP_LINK} className="text-[#D4AF37] uppercase tracking-widest text-sm font-bold">Acesso Liberado</a>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] uppercase tracking-widest text-sm font-bold" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Contact'); }}>Acesso Liberado</a>
           </div>
         )}
       </header>
@@ -542,7 +542,7 @@ const CPAElite = () => {
             </FadeIn>
 
             <FadeIn delay={600}>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Lead'); }}>
                 <div className="absolute inset-0 bg-[#D4AF37] blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500 rounded-lg"></div>
                 <button className="relative px-10 py-5 bg-gradient-to-r from-[#D4AF37] to-[#B69143] rounded-lg text-[#02050A] font-bold uppercase tracking-widest text-sm hover:scale-[1.02] transition-transform shadow-xl flex items-center gap-4 shine-effect">
                   <Unlock size={20} />
@@ -636,7 +636,7 @@ const CPAElite = () => {
                      <span className="text-white font-bold">100%</span>
                   </div>
                   
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full block py-4 bg-[#D4AF37] text-[#02050A] text-center font-bold uppercase tracking-widest rounded-xl hover:bg-[#c5a028] transition-colors">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full block py-4 bg-[#D4AF37] text-[#02050A] text-center font-bold uppercase tracking-widest rounded-xl hover:bg-[#c5a028] transition-colors" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Lead'); }}>
                      Acessar Plataforma
                   </a>
                 </div>
@@ -673,6 +673,7 @@ const CPAElite = () => {
                </div>
                <span className="text-2xl font-brand font-bold text-white block">€ 500,00</span>
                <span className="text-[10px] text-white/40">Meta Recorrente</span>
+               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Contact'); }}></a>
             </div>
 
             {/* Card 4: Extra (Small) */}
@@ -797,7 +798,7 @@ const CPAElite = () => {
                </div>
             </div>
 
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full block py-6 bg-[#D4AF37] hover:bg-[#c5a028] text-[#02050A] font-bold uppercase tracking-[0.25em] rounded-lg shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_50px_rgba(212,175,55,0.4)] transition-all transform hover:scale-[1.01] active:scale-95">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full block py-6 bg-[#D4AF37] hover:bg-[#c5a028] text-[#02050A] font-bold uppercase tracking-[0.25em] rounded-lg shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_50px_rgba(212,175,55,0.4)] transition-all transform hover:scale-[1.01] active:scale-95" onClick={() => { if(typeof window.fbq === 'function') window.fbq('track', 'Lead'); }}>
               Quero ser um operador
             </a>
           </FadeIn>
