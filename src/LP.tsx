@@ -15,7 +15,9 @@ import {
   TrendingUp,
   CreditCard,
   Users,
-  Bell
+  Bell,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 /* --- UTILS --- */
@@ -307,6 +309,38 @@ const TiltCard = ({ children, className }) => {
     >
       <div className="glare absolute w-64 h-64 bg-white/10 blur-[50px] rounded-full pointer-events-none opacity-0 transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2 z-50 mix-blend-overlay"></div>
       {children}
+    </div>
+  );
+};
+
+/* --- FAQ SECTION --- */
+const FAQItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-white/5 last:border-0">
+      <button 
+        className="w-full py-6 flex items-center justify-between text-left group"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className={`text-sm md:text-base font-bold transition-colors ${isOpen ? 'text-[#D4AF37]' : 'text-white group-hover:text-[#D4AF37]/80'}`}>
+          {question}
+        </span>
+        <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
+          isOpen ? 'bg-[#D4AF37] border-[#D4AF37] text-black' : 'border-white/10 text-white/50 group-hover:border-[#D4AF37]/50'
+        }`}>
+          {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </div>
+      </button>
+      <div 
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-48 opacity-100 mb-6' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <p className="text-blue-200/50 text-sm leading-relaxed pr-8">
+          {answer}
+        </p>
+      </div>
     </div>
   );
 };
@@ -763,6 +797,39 @@ const CPAElite = () => {
               ))}
            </div>
         </div>
+      </section>
+
+      {/* --- FAQ SECTION --- */}
+      <section className="py-24 px-6 relative bg-[#010203]">
+         <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-16">
+               <span className="text-[#D4AF37] text-[10px] uppercase tracking-[0.2em] font-bold mb-4 block">Tira-Dúvidas</span>
+               <h2 className="text-3xl md:text-4xl font-brand font-bold text-white">Perguntas Frequentes</h2>
+            </div>
+
+            <div className="bg-navy-glass rounded-3xl border border-white/5 p-8 md:p-12">
+               <FAQItem 
+                 question="Preciso aparecer ou vender algo?" 
+                 answer="Não. O protocolo é baseado em CPA (Custo por Ação) e atividades internas. Você atua nos bastidores, validando ações em plataformas europeias sem precisar expor sua imagem ou vender produtos." 
+               />
+               <FAQItem 
+                 question="Funciona apenas pelo celular?" 
+                 answer="Sim. Todo o ecossistema foi desenvolvido para ser operado 100% via mobile (Android ou iOS) ou computador, exigindo apenas conexão com a internet." 
+               />
+               <FAQItem 
+                 question="Como recebo os pagamentos?" 
+                 answer="Os valores acumulados em Euro são convertidos automaticamente pela processadora de pagamentos e enviados via PIX para sua conta bancária brasileira cadastrada." 
+               />
+               <FAQItem 
+                 question="Preciso saber falar inglês?" 
+                 answer="Não. O script e as ferramentas fornecidas traduzem e automatizam as interações necessárias. O suporte e a comunidade são totalmente em português." 
+               />
+               <FAQItem 
+                 question="Tenho garantia se não conseguir?" 
+                 answer="Absolutamente. Se você seguir o passo-a-passo e não obtiver retorno, você está protegido pela nossa garantia incondicional de 7 dias." 
+               />
+            </div>
+         </div>
       </section>
 
       {/* --- CTA FINAL --- */}
