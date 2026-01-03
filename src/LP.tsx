@@ -662,7 +662,7 @@ const CPAElite = () => {
             <div className="bg-navy-glass p-6 rounded-3xl border border-white/5 relative group hover:border-[#D4AF37]/30 transition-all">
                <div className="flex items-center gap-3 mb-4">
                   <Users size={20} className="text-[#D4AF37]" />
-                  <span className="text-xs font-bold text-white">Comunidade VIP</span>
+                  <span className="text-xs font-bold text-white">Operadores Ativos</span>
                </div>
                <div className="flex items-end gap-2">
                   <span className="text-3xl font-bold text-white">82</span>
@@ -711,14 +711,14 @@ const CPAElite = () => {
               {[
                 { 
                   icon: Lock, 
-                  title: "Acesso ao Grupo VIP", 
+                  title: "Acesso ao Grupo", 
                   desc: "Você entra em um grupo exclusivo e começa a ser operador de CPA ativo.", 
                   step: "01" 
                 },
                 { 
                   icon: Key, 
                   title: "Prática Operacional", 
-                  desc: "Utilize o script validado para simular acessos e começar a acumular saldo.", 
+                  desc: "Utilize da estratégia validada para simular acessos nas casas europeias começando a extrair euros.", 
                   step: "02" 
                 },
                 { 
