@@ -315,16 +315,33 @@ const TiltCard = ({ children, className }) => {
 const CPAElite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [spotsLeft, setSpotsLeft] = useState(14);
+  const [activeOperators, setActiveOperators] = useState(164); // Valor inicial entre 150 e 180
   const WHATSAPP_LINK = "https://chat.whatsapp.com/I4eVoSjkpnQ2uZsvBDpAoI";
   // Fallback para a logo caso o ambiente não carregue a imagem local
   const LOGO_URL = "LOGO CPA ELITE.jpeg"; 
   const CLIENT_REF_URL = "REFERENCIA BAU CLIENTE.jpeg"; 
 
   useEffect(() => {
+    // Timer para vagas (spotsLeft)
     const timer = setInterval(() => {
       setSpotsLeft((prev) => (prev > 3 ? prev - 1 : 3));
     }, 45000);
-    return () => clearInterval(timer);
+
+    // Timer para operadores ativos (variando entre 150 e 180)
+    const operatorsTimer = setInterval(() => {
+        setActiveOperators(prev => {
+            const change = Math.floor(Math.random() * 5) - 2; // -2 a +2
+            let newValue = prev + change;
+            if (newValue > 180) newValue = 180;
+            if (newValue < 150) newValue = 150;
+            return newValue;
+        });
+    }, 3000); // Atualiza a cada 3 segundos
+
+    return () => {
+        clearInterval(timer);
+        clearInterval(operatorsTimer);
+    };
   }, []);
 
   return (
@@ -665,7 +682,7 @@ const CPAElite = () => {
                   <span className="text-xs font-bold text-white">Operadores Ativos</span>
                </div>
                <div className="flex items-end gap-2">
-                  <span className="text-3xl font-bold text-white">82</span>
+                  <span className="text-3xl font-bold text-white transition-all duration-500">{activeOperators}</span>
                   <span className="text-[10px] text-green-400 mb-1 flex items-center gap-1">
                     <div className="w-1 h-1 rounded-full bg-green-400"></div> Online Agora
                   </span>
